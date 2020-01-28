@@ -1,5 +1,5 @@
 # i3 config file (v4)
-# Author = Werkaninchen
+# Author = Werkaninchen, Neolyum
 # 
 # Please see https://i3wm.org/docs/userguide.html for a complete reference
 
@@ -8,6 +8,17 @@ set $mod Mod4
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 font pango:DejaVu Sans Mono 12
+
+#### PLASMA
+# Don’t treat Plasma pop-ups as full-sized windows
+for_window [class="plasmashell"] floating enable
+
+# Don’t spawn an empty window for the Plasma Desktop
+for_window [title="Desktop — Plasma"] kill, floating enable, border none
+
+# Don’t let notifications and non-interactive pop-up windows steal focus
+no_focus [class="plasmashell" window_type="notification"]
+no_focus [class="plasmashell" window_type="on_screen_display"]
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -42,7 +53,7 @@ for_window [instance="dropdown_*"] move position center
 
 # #---Starting External Scripts---# #
 # Setting the background:
-exec --no-startup-id feh --bg-scale ~/Pictures/wallpaper.jpg
+exec --no-startup-id feh --bg-scale /usr/share/backgrounds/manjaro-wallpapers-18.0/manjaro_maia_logo.jpg
 
 # #---Basic Bindings--# #
 #
